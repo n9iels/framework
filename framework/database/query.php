@@ -66,7 +66,7 @@ class DatabaseQuery {
 	public function __toString() {
 		$query = '';
 
-		if (!is_null($this->sql) {
+		if (!is_null($this->sql)) {
 			return $this->sql;
 		}
 		else {
@@ -278,5 +278,9 @@ class DatabaseQuery {
 		}
 
 		return $this;
+	}
+
+	public function getSql() {
+		return $this->sql;
 	}
 }

@@ -5,7 +5,14 @@ class DatabaseDriverMysqli extends DatabaseDriver {
 	*
 	* @var  string
 	*/
-	protected $name = 'myqli';
+	protected $name = 'mysqli';
+
+	/**
+	* SQL query
+	*
+	* @var  string
+	*/
+	protected $sql = null;
 
 	/**
 	*
@@ -24,17 +31,27 @@ class DatabaseDriverMysqli extends DatabaseDriver {
 			return;
 		}
 
-		isset($options['host'] ? $options['host'] : 'localhost';
-		isset($options['user'] ? $options['user'] : 'root';
-		isset($options['password'] ? $options['password'] : 'root';
-		isset($options['port']) ? $options['port'] : '3306';
+		isset($options['host']) ? $options['host'] : 'localhost';
+		isset($options['user']) ? $options['user'] : 'root';
+		isset($options['password']) ? $options['password'] : 'root';
 
 		$this->connection = mysqli_connect(
-			$options['host'], $options['users'], $options['password'], $options['database'], $options['port']
+			$options['host'], $options['user'], $options['password'], $options['database']
 		);
 
 		if (!$this->connection) {
 			throw new RuntimeException("Could not connect to mysql");
+		}
+	}
+
+	/**
+	* Execute the SQL query
+	*/
+	public function execute() {
+		$result = $this->connection->query($this->sql);
+
+		if (!$result) {
+			printf("Error when executing query: %s\n", $this->connection->error);
 		}
 	}
 }

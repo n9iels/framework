@@ -6,7 +6,14 @@ abstract class DatabaseDriver {
 	* @var  string
 	*/
 	protected $name;
-	
+
+	/**
+	* SQL query
+	*
+	* @var  string
+	*/
+	protected $sql = null;
+
 	/**
 	* Database options
 	*
@@ -19,12 +26,6 @@ abstract class DatabaseDriver {
 	* @var connection  Connection of the choosen database driver
 	*/
 	protected $connection;
-
-	/**
-	* Constructor
-	*/
-	public function __construct() {
-	}
 
 	/**
 	* Get instance of the choosen databaser driver
@@ -58,7 +59,7 @@ abstract class DatabaseDriver {
 	*
 	* @return DatabaseQuery<driver>   DatabaseQuery object
 	*/
-	public static function getQuery() {
+	public function getQuery() {
 		$class = 'DatabaseQuery' . ucfirst(strtolower($this->name));
 
 		if (!class_exists($class)) {
@@ -76,5 +77,12 @@ abstract class DatabaseDriver {
 		}
 
 		return $instance;
+	}
+
+	/**
+	* Set query to execute
+	*/
+	public function setQuery($query) {
+		$this->sql = $query;
 	}
 }

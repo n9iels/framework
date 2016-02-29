@@ -2,7 +2,7 @@
 /**
 * Class for query elements
 */
-class DatbaseQueryelement {
+class DatabaseQueryElement {
 	/**
 	* @var string  Name of the element
 	*/
@@ -43,7 +43,7 @@ class DatbaseQueryelement {
 		}
 		else
 		{
-			return PHP_EOL . $this->name . ' ' . implode($this->elements, $this->glue);
+			return PHP_EOL . $this->name . ' ' . implode($this->glue, $this->elements);
 		}
 	}
 
@@ -53,10 +53,10 @@ class DatbaseQueryelement {
 	* @param  string  $element  Element for the elements array
 	*/
 	public function append($element) {
-		if (is_array($element) {
-			array_merge($this->elements, $element);
+		if (is_array($element)) {
+			$this->elements = array_merge($this->elements, $element);
 		} else {
-			array_merge($this->elements, array($element));
+			$this->elements = array_merge($this->elements, array($element));
 		}
 	}
 }

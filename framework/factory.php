@@ -12,9 +12,8 @@ abstract class Factory {
 		$database = 'sandbox';
 		$prefix   = 'sand_';
 		$driver   = 'mysqli';
-		$port     = '';
 
-		$options = array('driver' => $driver, 'host' => $host, 'user' => $user, 'password' => $password, 'database' => $database, 'prefix' => $prefix, 'port' => $port);
+		$options = array('driver' => $driver, 'host' => $host, 'user' => $user, 'password' => $password, 'database' => $database, 'prefix' => $prefix);
 
 		try
 		{
