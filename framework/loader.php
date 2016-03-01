@@ -24,7 +24,21 @@ class Loader {
 	* @return  void
 	*/
 	public function discover($class) {
-		$dir_path = strtolower(implode(DIRECTORY_SEPARATOR, preg_split('/(?=[A-Z])/', $class, 0, PREG_SPLIT_NO_EMPTY)));
-		$file     = strtolower(implode(DIRECTORY_SEPARATOR, array_pop($dir_path)));
+		$dir  = preg_split('/(?=[A-Z])/', $class, 0, PREG_SPLIT_NO_EMPTY);
+		$file = array_pop($dir);
+
+		// Try to find a file via the default convention
+		$path = strtolower(implode(DIRECTORY_SEPARATOR, $dir). DIRECTORY_SEPARATOR . $file) . '.php';
+
+		if (file_exists($path)) {
+			$this->register($class, $path);
+		}
+
+		// Try to find a file with the same folder and file name
+		$path = strtolower($file . DIRECTORY_SEPARATOR . $file) . '.php';
+
+		if (file_exists($path)) {
+			$this->register($class, $path);
+		}
 	}
 }
