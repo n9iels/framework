@@ -1,13 +1,11 @@
 <?php
-spl_autoload_register(function ($class_name) {
-	$path = 'framework' . strtolower(implode(DIRECTORY_SEPARATOR, preg_split('/(?=[A-Z])/', $class_name)));
-	$file = $path . '.php';
+define('BASE_PATH', __DIR__);
+define('FRAMEWORK_BASE', BASE_PATH . '/framework/');
 
-	if (file_exists($file)) {
-		require_once $file;
-	} else {
-		require_once $path . DIRECTORY_SEPARATOR . strtolower($class_name) . '.php';
-	}
+require_once 'framework/loader.php';
+
+spl_autoload_register(function ($class_name) {
+	Loader::load($class_name);
 });
 
 $db = Factory::getDbo();
