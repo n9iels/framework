@@ -11,6 +11,11 @@ class DatabaseDriverMysqli extends DatabaseDriver {
 	protected $sql = null;
 
 	/**
+	* @var  array  Database options
+	*/
+	protected $options = array();
+
+	/**
 	* @var connection  Connection of the choosen database driver
 	*/
 	protected $connection;
@@ -21,17 +26,20 @@ class DatabaseDriverMysqli extends DatabaseDriver {
 	* @param  $options  The database options
 	**/
 	public function __construct($options) {
+		// Set options
+		$this->options = $options;
+
 		// Don't connect if we have allready a connection
 		if ($this->connection) {
 			return;
 		}
 
-		isset($options['host']) ? $options['host'] : 'localhost';
-		isset($options['user']) ? $options['user'] : 'root';
-		isset($options['password']) ? $options['password'] : 'root';
+		isset($this->options['host']) ? $this->options['host'] : 'localhost';
+		isset($this->options['user']) ? $this->options['user'] : 'root';
+		isset($this->options['password']) ? $this->options['password'] : 'root';
 
 		$this->connection = mysqli_connect(
-			$options['host'], $options['user'], $options['password'], $options['database']
+			$this->options['host'], $this->options['user'], $this->options['password'], $this->options['database']
 		);
 
 		if (!$this->connection) {
@@ -43,7 +51,8 @@ class DatabaseDriverMysqli extends DatabaseDriver {
 	* Execute the SQL query
 	*/
 	public function execute() {
-		$result = $this->connection->query($this->sql);
+		$query = str_replace('#__', $this->options['prefix'], $this->sql);
+		$result = $this->connection->query($query);
 
 		if (!$result) {
 			printf("Error when executing query: %s\n", $this->connection->error);

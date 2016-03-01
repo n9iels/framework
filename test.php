@@ -13,7 +13,7 @@ spl_autoload_register(function ($class_name) {
 $db = Factory::getDbo();
 $query = $db->getQuery();
 $query->select("id, name");
-$query->from("sand_users");
+$query->from("#__users");
 $query->where("id = '3'");
 
 $db->setQuery($query);

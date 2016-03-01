@@ -73,7 +73,9 @@ abstract class DatabaseDriver {
 	}
 
 	/**
-	* Set query to execute
+	* Set query for execution
+	*
+	* @return  void
 	*/
 	public function setQuery($query) {
 		$this->sql = $query;
