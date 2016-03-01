@@ -1,7 +1,4 @@
 <?php
-/**
-* Class for query elements
-*/
 class DatabaseQueryElement {
 	/**
 	* @var string  Name of the element

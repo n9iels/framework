@@ -1,21 +1,16 @@
 <?php
 class DatabaseDriverMysqli extends DatabaseDriver {
 	/**
-	* Name of the choosen database driver
-	*
-	* @var  string
+	* @var  string  Name of the choosen database driver
 	*/
 	protected $name = 'mysqli';
 
 	/**
-	* SQL query
-	*
-	* @var  string
+	* @var  string  SQL query
 	*/
 	protected $sql = null;
 
 	/**
-	*
 	* @var connection  Connection of the choosen database driver
 	*/
 	protected $connection;
