@@ -11,16 +11,6 @@ abstract class DatabaseDriver {
 	protected $sql = null;
 
 	/**
-	* @var  array  Database options
-	*/
-	protected $options = array();
-
-	/**
-	* @var connection  Connection of the choosen database driver
-	*/
-	protected $connection;
-
-	/**
 	* Get instance of the choosen databaser driver
 	*
 	* @param   array  $options  Parameters to be passed to the database driver.
