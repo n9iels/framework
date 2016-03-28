@@ -1,6 +1,7 @@
 <?php
-define('BASE_PATH', __DIR__);
-define('FRAMEWORK_BASE', BASE_PATH . '/libraries/framework/');
+define('PATH_BASE', __DIR__);
+define('FRAMEWORK_BASE', PATH_BASE . '/libraries/framework');
+define('APPLICATION_BASE', PATH_BASE . '/applications');
 
 require_once FRAMEWORK_BASE . '/loader.php';
 
@@ -16,3 +17,6 @@ $query->where("id = '3'");
 
 $db->setQuery($query);
 $db->execute();
+
+require_once 'applications/content/controllers/article.php';
+$content = new ContentControllerArticle();

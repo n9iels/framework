@@ -3,7 +3,7 @@ class Loader {
 	/**
 	* @var  array  Array of all classes
 	*/
-	public static $class = array();
+	public static $path = array();
 
 	/**
 	* Register a class to load it manualy
@@ -12,8 +12,8 @@ class Loader {
 	*
 	* @return  void
 	*/
-	public static function register($class, $path) {
-		self::$class[$class] = $path;
+	public static function register($path) {
+		self::$path = $path;
 	}
 
 	/**
@@ -24,26 +24,36 @@ class Loader {
 	* @return  void
 	*/
 	public static function discover($class) {
-		$dir  = preg_split('/(?=[A-Z])/', $class, 0, PREG_SPLIT_NO_EMPTY);
-		$file = array_pop($dir);
+		$class = preg_split('/(?=[A-Z])/', $class, 0, PREG_SPLIT_NO_EMPTY);
+		$file  = end($class);
 
 		// Try to find a file via the default convention
-		$path = FRAMEWORK_BASE . strtolower(implode(DIRECTORY_SEPARATOR, $dir). DIRECTORY_SEPARATOR . $file) . '.php';
+		$path = FRAMEWORK_BASE . DIRECTORY_SEPARATOR . strtolower(implode(DIRECTORY_SEPARATOR, $class)) . '.php';
 
 		if (file_exists($path)) {
-			self::register($class, $path);
+			self::register($path);
 
 			return true;
 		}
 
 		// Try to find a file with the same folder and file name
-		$path = FRAMEWORK_BASE . strtolower($file . DIRECTORY_SEPARATOR . $file) . '.php';
+		$path = FRAMEWORK_BASE . DIRECTORY_SEPARATOR . strtolower($file . DIRECTORY_SEPARATOR . $file) . '.php';
 
 		if (file_exists($path)) {
-			self::register($class, $path);
+			self::register($path);
 
 			return true;
 		}
+
+		// None of the framework paths was correct, we now search for a application
+		$path = APPLICATION_BASE . DIRECTORY_SEPARATOR . strtolower($class[0] . DIRECTORY_SEPARATOR . $class[1] . 's' . DIRECTORY_SEPARATOR . $class[2]) . '.php';
+		
+		if (count($class) == 3 && file_exists($path)) {
+			self::register($path);
+
+			return true;
+		}
+
 
 		return false;
 	}
@@ -57,7 +67,7 @@ class Loader {
 		$discover = self::discover($class);
 
 		if ($discover === true) {
-			require_once self::$class[$class];
+			require_once self::$path;
 		}
 	}
 }
