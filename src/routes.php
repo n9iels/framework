@@ -1,10 +1,9 @@
 <?php
 // Routes
 
-$app->get('/content/[{id}]', function ($request, $response, $args) {
-    // Sample log message
-    $this->logger->info(sprintf("Requested content via /content/", $args['id']));
-
+$app->get('/content/[{id}]', function ($request, $response, $args)
+{
+	// Get Database object
 	$db = \Libraries\Factory::getDbo();
 
 	// Build query
@@ -14,9 +13,10 @@ $app->get('/content/[{id}]', function ($request, $response, $args) {
 	// Set query
 	$db->setQuery($query);
 	$db->execute();
+
+	// Execute query and get result as array
 	$list = $db->fetchArray();
 
-    // Render index view
+    // Return result as json array
     return json_encode($list);
-
 });
