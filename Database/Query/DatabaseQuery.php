@@ -91,7 +91,7 @@ namespace Database\Query
         {
             if (is_null($this->where))
             {
-                $this->where = new DatabaseQueryElement("WHERE", $conditions, "AND");
+                $this->where = new DatabaseQueryElement("WHERE", $conditions, " AND ");
             }
             else
             {
