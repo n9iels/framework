@@ -1,5 +1,5 @@
 <?php
-namespace Database
+namespace Libraries\Database
 {
 	class Database
 	{
@@ -7,12 +7,12 @@ namespace Database
 		 * @param  array  $options  Connection options
 		 *
 		 * @return  mixed  Instance of the choosen driver, otherwise an exception
-		 * 
+		 *
 		 * @throws \Exception
 		 */
 		public function getDriverInstance($options)
 		{
-			$class = "\\Database\\Driver\\DatabaseDriver" . ucfirst(strtolower($options['driver']));
+			$class = "Libraries\\Database\\Driver\\DatabaseDriver" . ucfirst(strtolower($options['driver']));
 
 			if (!class_exists($class))
 			{

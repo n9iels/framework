@@ -1,8 +1,7 @@
 <?php
-namespace Database\Driver
+namespace Libraries\Database\Driver
 {
-
-    use Database\Query\DatabaseQuery;
+    use Libraries\Database\Query\DatabaseQuery;
 
     abstract class DatabaseDriver implements IDatabaseDriver
     {
@@ -47,7 +46,7 @@ namespace Database\Driver
          */
         public function getQuery()
         {
-            $class = "\\Database\\Query\\DatabaseQuery" . ucfirst(strtolower($this->options['driver']));
+            $class = "Libraries\\Database\\Query\\DatabaseQuery" . ucfirst(strtolower($this->options['driver']));
 
             if (!class_exists($class))
             {

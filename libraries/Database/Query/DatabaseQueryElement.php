@@ -1,5 +1,5 @@
 <?php
-namespace Database\Query
+namespace Libraries\Database\Query
 {
     class DatabaseQueryElement
     {

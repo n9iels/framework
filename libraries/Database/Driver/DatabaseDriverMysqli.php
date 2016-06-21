@@ -1,5 +1,5 @@
 <?php
-namespace Database\Driver
+namespace Libraries\Database\Driver
 {
     class DatabaseDriverMysqli extends DatabaseDriver
     {

@@ -1,9 +1,6 @@
 <?php
-namespace Database\Query
+namespace Libraries\Database\Query
 {
-
-    use Database\Query\DatabaseQueryElement;
-
     abstract class DatabaseQuery
     {
         /**
