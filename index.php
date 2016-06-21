@@ -26,5 +26,5 @@ $driver->setQuery($query);
 $driver->execute();
 echo "<pre>" . print_r($query->__toString(), true) . "</pre>";
 
-$list = $driver->fetchObjectList();
-echo "<pre>" . print_r($list, true) . "</pre>";
+$list = $driver->fetchArray();
+echo "<pre>" . print_r(($list), true) . "</pre>";

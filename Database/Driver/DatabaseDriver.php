@@ -82,13 +82,32 @@ namespace Database\Driver
         }
 
         /**
-         * @return  array  Fetch the result as an object list
+         * Fetch the result as an object list
+         *
+         * @return  array  Array of results with objects
          */
         public function fetchObjectList()
         {
             $list = array();
 
             while ($row = $this->fetchObject())
+            {
+                $list[] = $row;
+            }
+
+            return $list;
+        }
+
+        /**
+         * Fetch the result as an array
+         *
+         * @return array  Array of results
+         */
+        public function fetchArray()
+        {
+            $list = array();
+
+            while ($row = $this->fetchAssoc())
             {
                 $list[] = $row;
             }
@@ -118,5 +137,12 @@ namespace Database\Driver
          * @return  mixed  Result object
          */
         abstract public function fetchObject();
+
+        /**
+         * Fetch a single result as array
+         *
+         * @return  array  Result as array
+         */
+        abstract public function fetchAssoc();
     }
 }

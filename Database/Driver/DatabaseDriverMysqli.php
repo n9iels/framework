@@ -46,5 +46,15 @@ namespace Database\Driver
         {
             return mysqli_fetch_object($this->result);
         }
+
+        /**
+         * Fetch a single result as array
+         *
+         * @return  array  Result as array
+         */
+        public function fetchAssoc()
+        {
+            return mysqli_fetch_assoc($this->result);
+        }
     }
 }

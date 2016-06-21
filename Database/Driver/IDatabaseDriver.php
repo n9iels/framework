@@ -25,5 +25,12 @@ namespace Database\Driver
          * @return  mixed  Result object
          */
         public function fetchObject();
+
+        /**
+         * Fetch a single array of the result
+         *
+         * @return mixed  result object
+         */
+        public function fetchAssoc();
     }
 }
