@@ -48,12 +48,9 @@ namespace Libraries\Database\Query
          */
         public function append($elements)
         {
-            if (is_array($elements))
-            {
+            if (is_array($elements)) {
                 $this->elements = array_merge($elements, $this->elements);
-            }
-            else
-            {
+            } else {
                 $this->elements = array_merge(array($elements), $this->elements);
             }
         }

@@ -36,12 +36,11 @@ namespace Libraries\Database\Query
                     $query .= (string) $this->select;
                     $query .= (string) $this->from;
 
-                    if (!is_array($this->where))
-                    {
+                    if (!is_array($this->where)) {
                         $query .= (string) $this->where;
                     }
             }
-            
+
             return $query;
         }
 
@@ -86,12 +85,9 @@ namespace Libraries\Database\Query
          */
         public function where($conditions)
         {
-            if (is_null($this->where))
-            {
+            if (is_null($this->where)) {
                 $this->where = new DatabaseQueryElement("WHERE", $conditions, " AND ");
-            }
-            else
-            {
+            } else {
                 $this->where->append($conditions);
             }
 

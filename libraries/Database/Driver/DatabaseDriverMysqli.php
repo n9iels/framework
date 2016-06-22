@@ -14,10 +14,14 @@ namespace Libraries\Database\Driver
          */
         public function connect(array $options)
         {
-            $this->connection = mysqli_connect($options['host'], $options['user'], $options['password'], $options['database']);
+            $this->connection = mysqli_connect(
+                $options['host'],
+                $options['user'],
+                $options['password'],
+                $options['database']
+            );
 
-            if (!$this->connection)
-            {
+            if (!$this->connection) {
                 throw new \Exception("Could not connect to mysqli");
             }
         }
@@ -31,8 +35,7 @@ namespace Libraries\Database\Driver
         {
             $this->result = mysqli_query($this->connection, $this->query);
 
-            if (!$this->result)
-            {
+            if (!$this->result) {
                 printf("Error: %s\n", $this->connection->error);
             }
         }

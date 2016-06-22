@@ -48,17 +48,13 @@ namespace Libraries\Database\Driver
         {
             $class = "Libraries\\Database\\Query\\DatabaseQuery" . ucfirst(strtolower($this->options['driver']));
 
-            if (!class_exists($class))
-            {
+            if (!class_exists($class)) {
                 throw new \Exception(sprintf("DatabaseQuery '%s' was not found", $class));
             }
 
-            try
-            {
+            try {
                 $instance = new $class;
-            }
-            catch (\RuntimeException $e)
-            {
+            } catch (\RuntimeException $e) {
                 throw new \Exception("DatabaseQuery object was not found");
             }
 
@@ -72,8 +68,7 @@ namespace Libraries\Database\Driver
          */
         public function setQuery(DatabaseQuery $query)
         {
-            if (!$this->connection)
-            {
+            if (!$this->connection) {
                 $this->connect($this->options);
             }
 
@@ -89,8 +84,7 @@ namespace Libraries\Database\Driver
         {
             $list = array();
 
-            while ($row = $this->fetchObject())
-            {
+            while ($row = $this->fetchObject()) {
                 $list[] = $row;
             }
 
@@ -106,8 +100,7 @@ namespace Libraries\Database\Driver
         {
             $list = array();
 
-            while ($row = $this->fetchAssoc())
-            {
+            while ($row = $this->fetchAssoc()) {
                 $list[] = $row;
             }
 
