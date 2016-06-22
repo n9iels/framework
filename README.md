@@ -1,10 +1,10 @@
 # Rest API voor Project 4
 Dit is een simpele Rest API gemaakt met Slim framework
 
-# Gebruik
+## Gebruik
 De api is als volg te gebruiken
 
-## Fietstrommels
+### Fietstrommels
 Ophalen van alle fietstrommels
 ```
 /fietstrommels
