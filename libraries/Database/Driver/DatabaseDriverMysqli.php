@@ -34,10 +34,6 @@ namespace Libraries\Database\Driver
         public function execute()
         {
             $this->result = mysqli_query($this->connection, $this->query);
-
-            if (!$this->result) {
-                printf("Error: %s\n", $this->connection->error);
-            }
         }
 
         /**
@@ -57,7 +53,24 @@ namespace Libraries\Database\Driver
          */
         public function fetchAssoc()
         {
+            if (!$this->result) {
+                printf("Error: %s\n", $this->connection->error);
+                exit();
+            }
+
             return mysqli_fetch_assoc($this->result);
+        }
+
+        /**
+         * Quote a string for a save usage
+         *
+         * @param  string  $name  String that should be quote
+         *
+         * @return  string
+         */
+        public function quote($name)
+        {
+            return mysqli_real_escape_string($this->connection, $name);
         }
     }
 }

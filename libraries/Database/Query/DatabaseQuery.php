@@ -36,7 +36,7 @@ namespace Libraries\Database\Query
                     $query .= (string) $this->select;
                     $query .= (string) $this->from;
 
-                    if (!is_array($this->where)) {
+                    if ($this->where) {
                         $query .= (string) $this->where;
                     }
             }

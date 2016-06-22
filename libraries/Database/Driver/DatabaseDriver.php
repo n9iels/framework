@@ -108,6 +108,27 @@ namespace Libraries\Database\Driver
         }
 
         /**
+         * Quote a table name for a save usage
+         *
+         * @param  string  $name  Table name that should be quoted
+         *
+         * @return  string
+         */
+        public function quoteName($name)
+        {
+            return "`" . $name . "`";
+        }
+
+        /**
+         * Quote a string for a save usage
+         *
+         * @param  string  $name  String that should be quote
+         *
+         * @return  string
+         */
+        abstract public function quote($name);
+
+        /**
          * Connect to the database
          *
          * @param  array  $options  Connection options
