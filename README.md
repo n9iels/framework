@@ -1,5 +1,6 @@
 # Rest API voor Project 4
-Dit is een simpele Rest API gemaakt met Slim framework
+Dit is een simpele Rest API gemaakt met Slim framework. De volgende data is beschikbaar:
+- Fietstrommels in Rotterdam (**Let op:** straatnamen zijn correct zonder afkorting)
 
 ## Gebruik
 De api is als volg te gebruiken
