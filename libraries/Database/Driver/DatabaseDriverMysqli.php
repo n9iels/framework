@@ -70,7 +70,7 @@ namespace Libraries\Database\Driver
          */
         public function quote($name)
         {
-            return mysqli_real_escape_string($this->connection, $name);
+            return parent::quote(mysqli_real_escape_string($this->connection, $name));
         }
     }
 }

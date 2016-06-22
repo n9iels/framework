@@ -126,7 +126,10 @@ namespace Libraries\Database\Driver
          *
          * @return  string
          */
-        abstract public function quote($name);
+        public function quote($name)
+        {
+            return "'" . $name . "'";
+        }
 
         /**
          * Connect to the database

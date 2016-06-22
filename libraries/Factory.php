@@ -7,10 +7,10 @@ namespace Libraries
         {
             $options = array (
                 "driver" => "mysqli",
-                "host" => "localhost",
-                "user" => "root",
-                "password" => "root",
-                "database" => "joomla-cms"
+                "host" => "62.45.12.67",
+                "user" => "henk",
+                "password" => "dday2009",
+                "database" => "project4"
             );
 
             // Get database and driver
