@@ -52,7 +52,7 @@ $app->get('/fietstrommels/{deelgemeente}/{id}', function ($request, $response, $
 });
 
 
-$app->get('/BikeTheft', function($request, $response, $args)
+$app->get('/biketheft', function($request, $response, $args)
 {
     $db = \Libraries\Factory::getDbo();
 
