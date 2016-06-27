@@ -20,6 +20,9 @@ $app->get('/fietstrommels[/{deelgemeente}]', function ($request, $response, $arg
     // Execute query and get result as array
     $list = $db->fetchArray();
 
+    // Close connection
+    $db->close();
+
     return $response->withjson($list);
 });
 
@@ -41,6 +44,9 @@ $app->get('/fietstrommels/{deelgemeente}/{id}', function ($request, $response, $
 
     // Execute query and get result as array
     $list = $db->fetchArray();
+
+    // Close connection
+    $db->close();
 
     return $response->withjson($list);
 });

@@ -13,6 +13,13 @@ namespace Libraries\Database\Driver
         public function connect(array $options);
 
         /**
+         * Close the database connection
+         *
+         * @return  void
+         */
+        public function close();
+
+        /**
          * Execute the query and set the result property
          *
          * @return void

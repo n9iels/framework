@@ -27,6 +27,16 @@ namespace Libraries\Database\Driver
         }
 
         /**
+         * Close the database connection
+         *
+         * @return  mysqli_close
+         */
+        public function close()
+        {
+            return mysqli_close($this->connection);
+        }
+
+        /**
          * Execute the query and set the result property
          *
          * @return void
