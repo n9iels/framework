@@ -20,5 +20,6 @@ Ophalen van een specifieke fietstrommel in een deelgemeente
 ```
 
 Ophalen van alle Diefstallen in een bepaalde wijk:
-
+```
 /biketheft
+```
