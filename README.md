@@ -18,3 +18,7 @@ Ophalen van een specifieke fietstrommel in een deelgemeente
 ```
 /fietstrommels/:deelgemeente/:id
 ```
+
+Ophalen van alle Diefstallen in een bepaalde wijk:
+
+/biketheft
