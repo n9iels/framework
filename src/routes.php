@@ -60,7 +60,7 @@ $app->get('/BikeTheft', function($request, $response, $args)
     $query-> select("*")
         ->from($db->quoteName("BikeTheft"));
 
-    $db->setQuery();
+    $db->setQuery($query);
     $db->execute();
 
     $list = $db->fetchArray();
