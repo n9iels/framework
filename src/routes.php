@@ -50,3 +50,22 @@ $app->get('/fietstrommels/{deelgemeente}/{id}', function ($request, $response, $
 
     return $response->withjson($list);
 });
+
+
+$app->get('/BikeTheft', function($request, $response, $args)
+{
+    $db = \Libraries\Factory::getDbo();
+
+    $query = $db->getQuery();
+    $query-> select("*")
+        ->from($db->quoteName("BikeTheft"));
+
+    $db->setQuery();
+    $db->execute();
+
+    $list = $db->fetchArray();
+
+    $db->close();
+
+    return $response->withjson($list);
+});
