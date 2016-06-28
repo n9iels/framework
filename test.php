@@ -10,7 +10,7 @@ curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 curl_setopt($ch, CURLOPT_VERBOSE, 1);
 curl_setopt($ch, CURLOPT_HEADER, 1);
 curl_setopt($ch, CURLOPT_HTTPHEADER, array(
-    'ETag: test'
+    'ETag: "dced2f8f21db02f9294067aa280a64ca"'
 ));
 
 // $output contains the output string
@@ -20,7 +20,6 @@ $output = curl_exec($ch);
 curl_close($ch);
 
 echo "<pre>" . print_r($output, true) . "</pre>";
-return false;
 ?>
 
 

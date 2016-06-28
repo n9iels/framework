@@ -1,5 +1,7 @@
 <?php
 require __DIR__ . '/../vendor/autoload.php';
+require __DIR__ . '/../src/etagvalidation.php';
+require __DIR__ . '/../src/routecontainer.php';
 
 session_start();
 
@@ -16,9 +18,11 @@ $container['cache'] = function () {
 // Add middleware to the application
 $app = new \Slim\App($container);
 $app->add(new \Slim\HttpCache\Cache('public', 60));
+$app->add(new ETagValidation($container));
 
 // Register routes
-require __DIR__ . '/../src/routes.php';
+$app->get('/fietstrommels[/{deelgemeente}[/{id}]]', 'routeContainer:bikeContainer');
+$app->get('/biketheft', 'routeContainer:biketheft');
 
 // Run app
 $app->run();
