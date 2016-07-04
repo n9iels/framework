@@ -7,7 +7,7 @@ namespace Libraries
         {
             $options = array (
                 "driver" => "mysqli",
-                "host" => "62.45.12.67",
+                "host" => "eilandn.asuscomm.com",
                 "user" => "henk",
                 "password" => "dday2009",
                 "database" => "project4"
