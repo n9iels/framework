@@ -7,10 +7,10 @@ namespace Libraries
         {
             $options = array (
                 "driver" => "mysqli",
-                "host" => "eilandn.asuscomm.com",
-                "user" => "henk",
-                "password" => "dday2009",
-                "database" => "project4"
+                "host" => "...",
+                "user" => "...",
+                "password" => "...",
+                "database" => "..."
             );
 
             // Get database and driver
