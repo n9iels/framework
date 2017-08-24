@@ -1,25 +1,2 @@
-# Rest API voor Project 4
-Dit is een simpele Rest API gemaakt met Slim framework. De volgende data is beschikbaar:
-- Fietstrommels in Rotterdam (**Let op:** straatnamen zijn correct zonder afkorting)
-
-## Gebruik
-De api is als volg te gebruiken
-
-### Fietstrommels
-Ophalen van alle fietstrommels
-```
-/fietstrommels
-```
-Ophalen van fietstrommels in een deelgemeente
-```
-/fietstrommels/:deelgemeente
-```
-Ophalen van een specifieke fietstrommel in een deelgemeente
-```
-/fietstrommels/:deelgemeente/:id
-```
-
-Ophalen van alle Diefstallen in een bepaalde wijk:
-```
-/biketheft
-```
+# HR Project 4 - Rest API
+In deze repository is alle code van Project 4 van de Hogeschool Rotterdam te vinden. Deze code is geschreven door Stefan Bresser (@StefanBresser), Bryan Kroesbeek (@Bryan-Turbo), Tim Heusschen (@Timz95), Jeilliano Tavares (@Jtavares94) en Niels van der Veer (@n9iels). Alle rechten zijn voorbehouden aan deze personen. Deze code als inspiratie gebruiken mag, maar letterlijk over nemen is niet toegestaan.
